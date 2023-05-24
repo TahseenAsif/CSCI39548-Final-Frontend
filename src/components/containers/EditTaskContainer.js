@@ -162,8 +162,8 @@ class EditTaskContainer extends Component {
               {task.employee!==null && <option value="staff">Staff</option>}
             </select>
             <select onChange={(e) => this.handleSelectChange2(e)}>
-              <option value={task.isComplete? "True" : "False"}>{task.isComplete? "True" : "False"}</option>
-              <option value={!task.isComplete? "True" : "False"}>{!task.isComplete? "True" : "False"}</option>
+              <option value={task.isComplete? "true" : "false"}>{task.isComplete? "True" : "False"}</option>
+              <option value={!task.isComplete? "true" : "false"}>{!task.isComplete? "True" : "False"}</option>
             </select>
   
             <button type="submit">
