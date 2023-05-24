@@ -1,4 +1,5 @@
 import * as at from "../actions/actionTypes";
+import employee from "./employee";
 
 // REDUCER;
 const allEmployees = (state = [], action) => {
@@ -7,6 +8,14 @@ const allEmployees = (state = [], action) => {
       return action.payload;
     case at.ADD_EMPLOYEE:
       return [...state, action.payload]
+    case at.DELETE_EMPLOYEE:
+      return state.filter(employee => employee.id!==action.payload);
+    case at.EDIT_TASK:
+      return state.map(task => { 
+        return (
+          employee.id===action.payload.id ? action.payload : employee
+        );
+      });
     default:
       return state;
   }
