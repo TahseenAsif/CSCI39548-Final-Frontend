@@ -1,3 +1,3 @@
 # final-frontend
 
-starter code for CSCI 39548 final project
+Tahseen Asif Frontend App Final Submission
