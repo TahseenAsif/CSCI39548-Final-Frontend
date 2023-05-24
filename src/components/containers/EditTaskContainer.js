@@ -45,6 +45,7 @@ class EditTaskContainer extends Component {
           description: "", 
           priority: "",
           employeeId: null, 
+          isComplete: false,
           redirect: false, 
           redirectId: null,
           error: ""
@@ -59,6 +60,7 @@ class EditTaskContainer extends Component {
             description: this.props.task.description, 
             priority: this.props.task.priority,
             employeeId: this.props.task.employeeId, 
+            isComplete: this.props.task.isComplete,
         });
       }
 
@@ -81,6 +83,19 @@ class EditTaskContainer extends Component {
       }
     }
 
+    handleSelectChange2 = event => {
+      //handle change for the dropdown menu
+      //want to set the employeeId based on the selected choice
+      //when the form gets submitted, this is how we can change
+      //assigned employee without having to manually enter in the 
+      //employeeId like before
+      if (event.target.value === "false") {
+        this.setState({isComplete:false});
+      } else {
+        this.setState({isComplete:true})
+      }
+    }
+
     handleSubmit = event => {
         event.preventDefault();
         //implementing form validation
@@ -94,7 +109,8 @@ class EditTaskContainer extends Component {
             id: this.props.task.id,
             description: this.state.description,
             priority: this.state.priority,
-            employeeId: this.state.employeeId
+            employeeId: this.state.employeeId,
+            isComplete: this.state.isComplete,
         };
         
         this.props.editTask(task);
@@ -144,6 +160,10 @@ class EditTaskContainer extends Component {
                 )
               })}
               {task.employee!==null && <option value="staff">Staff</option>}
+            </select>
+            <select onChange={(e) => this.handleSelectChange2(e)}>
+              <option value={task.isComplete? "True" : "False"}>{task.isComplete? "True" : "False"}</option>
+              <option value={!task.isComplete? "True" : "False"}>{!task.isComplete? "True" : "False"}</option>
             </select>
   
             <button type="submit">
