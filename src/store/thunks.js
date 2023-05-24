@@ -32,7 +32,7 @@ export const deleteEmployeeThunk = employeeId => async dispatch => {
   try {
     await axios.delete(`${path}/employees/${employeeId}`);
     //delete succesful so change state with dispatch
-    dispatch(ac.deleteTask(employeeId));
+    dispatch(ac.deleteEmployee(employeeId));
   } catch(err) {
     console.error(err);
   }

@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 const HomePageView = () => {
   return (
     <div>
-      <h6>Final Project</h6>
-      <Link to={'/employees'} > All Employees </Link>
-      <Link to={'/tasks'} > All Tasks </Link>
+      <h1>Final Project</h1>
+      <Link to={'/employees'} > <button>All Employees</button> </Link>
+      <Link to={'/tasks'} > <button>All Tasks</button> </Link>
       
     </div>
   );    
