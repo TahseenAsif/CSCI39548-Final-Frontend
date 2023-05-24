@@ -192,6 +192,9 @@ class EditTaskContainer extends Component {
             </div>
             )})
           }
+          <Link to={`../task/${this.props.task.id}`}>
+            <button>Cancel</button>
+            </Link>
           </div>
         </div>
         )
