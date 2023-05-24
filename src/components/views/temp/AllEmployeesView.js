@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const AllEmployeesView = (props) => {
   console.log(props);
-  let {employees, deleteEmployee} = props;
+  let {allEmployees, deleteEmployee} = props;
   
-  if (!props.employees.length) {
+  if (!allEmployees.length) {
     return (
       <div>
           <div>There are no employees. </div>
@@ -18,7 +18,7 @@ const AllEmployeesView = (props) => {
 
   return (
     <div>
-      {props.employees.map((employee) => {
+      {allEmployees.map((employee) => {
         let name = employee.firstname + " " + employee.lastname;
         return (
           <div key={employee.id}>
@@ -36,10 +36,6 @@ const AllEmployeesView = (props) => {
       </Link>
     </div>
   );
-};
-
-AllEmployeesView.propTypes = {
-  employees: PropTypes.array.isRequired,
 };
 
 export default AllEmployeesView;

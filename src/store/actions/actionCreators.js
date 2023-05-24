@@ -21,6 +21,20 @@ export const addEmployee = (employee) => {
   }
 }
 
+export const deleteEmployee = (employeeId) => {
+  return {
+    type: at.DELETE_EMPLOYEE,
+    payload: employeeId,
+  };
+};
+
+export const editEmployee = (employee) => {
+  return {
+    type: at.EDIT_EMPLOYEE,
+    payload: employee,
+  };
+};
+
 //Single instructor
 export const fetchEmployee = (employee) => {
   return {
