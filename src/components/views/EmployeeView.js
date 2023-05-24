@@ -17,7 +17,7 @@ const EmployeeView = (props) => {
           return (
             <div key={task.id}>
             <Link to={`/task/${task.id}`}>
-              <h4>{task.title}</h4>
+              <h4>{task.description}</h4>
             </Link>
             <button onClick={() => editTask({id:task.id, employeeId: null})}>x</button>
             </div>
@@ -28,7 +28,7 @@ const EmployeeView = (props) => {
           return (
             <div key={task.id}>
             <Link to={`/task/${task.id}`}>
-              <h4>{task.title}</h4>
+              <h4>{task.description}</h4>
             </Link>
             <button onClick={() => editTask({id:task.id, employeeId: employee.id})}>+</button>
             </div>

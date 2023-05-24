@@ -1,3 +1,4 @@
+import { employee } from '../reducers';
 import * as at from './actionTypes';
 
 // ACTION CREATORS;
@@ -12,6 +13,13 @@ export const fetchAllEmployees = (employees) => {
     payload: employees,
   };
 };
+
+export const addEmployee = (employee) => {
+  return {
+    type: at.ADD_EMPLOYEE,
+    payload: employee, 
+  }
+}
 
 //Single instructor
 export const fetchEmployee = (employee) => {

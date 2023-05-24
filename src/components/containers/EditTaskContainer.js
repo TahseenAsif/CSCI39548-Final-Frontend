@@ -42,8 +42,8 @@ class EditTaskContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-          title: "", 
-          timeslot: "",
+          description: "", 
+          priority: "",
           employeeId: null, 
           redirect: false, 
           redirectId: null,
@@ -56,8 +56,8 @@ class EditTaskContainer extends Component {
         this.props.fetchTask(this.props.match.params.id);
         this.props.fetchEmployees();
         this.setState({
-            title: this.props.task.title, 
-            timeslot: this.props.task.timeslot,
+            description: this.props.task.description, 
+            priority: this.props.task.priority,
             employeeId: this.props.task.employeeId, 
         });
       }
@@ -84,16 +84,16 @@ class EditTaskContainer extends Component {
     handleSubmit = event => {
         event.preventDefault();
         //implementing form validation
-        if (this.state.title === "") {
-          this.setState({error: "Error: title cannot be empty"});
+        if (this.state.description === "") {
+          this.setState({error: "Error: description cannot be empty"});
           return;
         }
 
         //get new info for task from form input
         let task = {
             id: this.props.task.id,
-            title: this.state.title,
-            timeslot: this.state.timeslot,
+            description: this.state.description,
+            priority: this.state.priority,
             employeeId: this.state.employeeId
         };
         
@@ -125,12 +125,12 @@ class EditTaskContainer extends Component {
         return (
         <div>
         <form style={{textAlign: 'center'}} onSubmit={(e) => this.handleSubmit(e)}>
-            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Title: </label>
-            <input type="text" name="title" value={this.state.title || ''} placeholder={task.title} onChange ={(e) => this.handleChange(e)}/>
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
+            <input type="text" name="description" value={this.state.description || ''} placeholder={task.description} onChange ={(e) => this.handleChange(e)}/>
             <br/>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Timeslot: </label>
-            <input type="text" name="timeslot" value={this.state.timeslot || ''} placeholder={task.timeslot} onChange={(e) => this.handleChange(e)}/>
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Priority: </label>
+            <input type="text" name="priority" value={this.state.priority || ''} placeholder={task.priority} onChange={(e) => this.handleChange(e)}/>
             <br/>
 
             <select onChange={(e) => this.handleSelectChange(e)}>

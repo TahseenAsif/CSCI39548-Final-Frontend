@@ -16,6 +16,17 @@ export const fetchAllEmployeesThunk = () => async (dispatch) => {
   }
 };
 
+export const addEmployeeThunk = (task) => async (dispatch) => {
+  // task = { title: "CSCI 127" }
+  try {
+    let res = await axios.post(`${path}/employees`, task);
+    dispatch(ac.addEmployee(res.data));
+    return res.data;
+  } catch(err) {
+    console.error(err);
+  }
+};
+
 //Single Employee
 export const fetchEmployeeThunk = (id) => async (dispatch) => {
   // thunk creator would not an be async function 
