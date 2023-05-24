@@ -124,6 +124,10 @@ class EditEmployeeContainer extends Component {
               Submit
             </button>
 
+            <Link to={`../employee/${this.props.employee.id}`}>
+            <button>Cancel</button>
+            </Link>
+
           </form>
           { this.state.error !=="" && <p>{this.state.error}</p> }
         </div>
